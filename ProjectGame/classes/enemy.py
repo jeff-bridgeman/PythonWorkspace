@@ -1,0 +1,77 @@
+"""Import."""
+import random
+import pprint
+from classes.magic import Spell
+
+
+class Character:
+    """Create Character class."""
+
+    def __init__(self, hp, mp, atk, df, magic):
+        """Initisalize."""
+        self.maxhp = hp
+        self.hp = hp
+        self.maxmp = mp
+        self.mp = mp
+        self.atkl = atk - 10
+        self.atkh = atk + 10
+        self.df = df
+        self.magic = magic
+        self.actions = ["Attack", "Magic"]
+
+    def getMp(self):
+        """Return Magic power on Character."""
+        return self.mp
+
+    def getMaxMp(self):
+        """Return Max Magic power on Character."""
+        return self.maxmp
+
+    def getHp(self):
+        """Return Health points on Character."""
+        return self.hp
+
+    def getMaxHp(self):
+        """Return Max Health points on Character."""
+        return self.maxhp
+
+    def getAtk(self):
+        """Return Attack power (Low, High) on Character."""
+        return (self.atkl, self.atkh)
+
+    def generateDamage(self):
+        """Return Damage dealt."""
+        return random.randrange(self.atkl, self.atkh)
+
+    def takeDamage(self, dmg):
+        """Damage check."""
+        self.hp -= dmg
+        if self.hp < 0:
+            self.hp = 0
+        return self.hp
+
+    def reduceMp(self, cost):
+        """Damage check."""
+        self.mp -= cost
+        if self.mp < 0:
+            self.mp = 0
+        return self.mp
+
+    def heal(self, dmg):
+        self.hp += dmg
+        if self.hp > self.maxhp:
+            self.hp = self.maxhp
+
+
+    def chooseAction(self):
+        i = 1
+        for item in self.actions:
+            print(str(i) + ":", item)
+            i += 1
+
+    def chooseMagic(self):
+        i = 1
+
+        for spell in self.magic:
+            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
+            i += 1
