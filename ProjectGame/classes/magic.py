@@ -3,6 +3,7 @@
 
 import random
 
+
 class Spell:
     """Class Spell."""
 

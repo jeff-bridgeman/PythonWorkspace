@@ -68,7 +68,7 @@ class Character:
         """Menu actions."""
         i = 1
         for item in self.actions:
-            print(str(i) + ":", item)
+            print("    " + str(i) + ".", item)
             i += 1
 
     def chooseMagic(self):
@@ -76,5 +76,16 @@ class Character:
         i = 1
 
         for spell in self.magic:
-            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
+            print("    " + str(i) + ".", spell.name, "(cost:",
+                  str(spell.cost) + ")")
+            i += 1
+
+    def chooseItem(self):
+        """Choose magic spells."""
+        i = 1
+
+        for items in self.items:
+            print("    " + str(i) + ".", items["item"].name, ":",
+                  items["item"].description + " (x" + str(items["quantity"])
+                  + ")")
             i += 1
