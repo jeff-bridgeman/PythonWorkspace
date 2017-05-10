@@ -1,13 +1,13 @@
 """Import."""
 import random
-import pprint
-from classes.magic import Spell
+# import pprint
+# from classes.magic import Spell
 
 
 class Character:
     """Create Character class."""
 
-    def __init__(self, hp, mp, atk, df, magic):
+    def __init__(self, hp, mp, atk, df, magic, items):
         """Initisalize."""
         self.maxhp = hp
         self.hp = hp
@@ -17,7 +17,8 @@ class Character:
         self.atkh = atk + 10
         self.df = df
         self.magic = magic
-        self.actions = ["Attack", "Magic"]
+        self.items = items
+        self.actions = ["Attack", "Magic", "Items"]
 
     def getMp(self):
         """Return Magic power on Character."""
@@ -58,20 +59,33 @@ class Character:
         return self.mp
 
     def heal(self, dmg):
+        """Heal character."""
         self.hp += dmg
         if self.hp > self.maxhp:
             self.hp = self.maxhp
 
-
     def chooseAction(self):
+        """Menu actions."""
         i = 1
         for item in self.actions:
-            print(str(i) + ":", item)
+            print("    " + str(i) + ".", item)
             i += 1
 
     def chooseMagic(self):
+        """Choose magic spells."""
         i = 1
 
         for spell in self.magic:
-            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
+            print("    " + str(i) + ".", spell.name, "(cost:",
+                  str(spell.cost) + ")")
+            i += 1
+
+    def chooseItem(self):
+        """Choose magic spells."""
+        i = 1
+
+        for items in self.items:
+            print("    " + str(i) + ".", items["item"].name, ":",
+                  items["item"].description + " (x" + str(items["quantity"])
+                  + ")")
             i += 1
