@@ -6,11 +6,12 @@ This repository is where I try new things in Python, and continue learning thru 
 
 ## Project Game Folder
 [![forthebadge](http://forthebadge.com/images/badges/designed-in-etch-a-sketch.svg)](http://forthebadge.com)
+
 This is a text based RPG.
 
--[x] Game playable
--[ ] Add characters to party
--[ ] Multiple enemies
+- [x] Game playable
+- [ ] Add characters to party
+- [ ] Multiple enemies
 
 ## SCIENCE
 [![forthebadge](http://forthebadge.com/images/badges/built-with-science.svg)](http://forthebadge.com)
